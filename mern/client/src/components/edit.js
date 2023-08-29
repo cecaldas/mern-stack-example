@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router";
 
 export default function Edit() {
+const backendHost = process.env.REACT_APP_BACKEND_HOST || "http://localhost:5050"; 
  const [form, setForm] = useState({
    name: "",
    position: "",
@@ -14,7 +15,7 @@ export default function Edit() {
  useEffect(() => {
    async function fetchData() {
      const id = params.id.toString();
-     const response = await fetch(`http://localhost:5050/record/${params.id.toString()}`);
+     const response = await fetch(`${backendHost}/record/${params.id.toString()}`);
 
      if (!response.ok) {
        const message = `An error has occurred: ${response.statusText}`;

@@ -6,7 +6,7 @@ const client = new MongoClient(connectionString);
 
 let conn;
 try {
-  console.log("Connecting to MongoDB Atlas...");
+  console.log("Connecting to MongoDB on: "+connectionString);
   conn = await client.connect();
 } catch(e) {
   console.error(e);

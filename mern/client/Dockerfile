@@ -1,6 +1,10 @@
 # Use an official Node.js runtime as the base image
 FROM node:18.17.1
 
+
+ARG REACT_APP_BACKEND_HOST
+ENV REACT_APP_BACKEND_HOST=$REACT_APP_BACKEND_HOST
+
 # Set the working directory in the container
 WORKDIR /app
 
@@ -21,4 +25,3 @@ EXPOSE 3000
 
 # Start the app
 CMD ["npm", "start"]
-#CMD ["start.sh"]

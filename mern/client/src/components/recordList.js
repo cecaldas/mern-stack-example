@@ -20,12 +20,13 @@ const Record = (props) => (
 );
 
 export default function RecordList() {
+ const backendHost = process.env.REACT_APP_BACKEND_HOST || "http://localhost:5050"; 
  const [records, setRecords] = useState([]);
 
  // This method fetches the records from the database.
  useEffect(() => {
    async function getRecords() {
-     const response = await fetch(`http://localhost:5050/record/`);
+     const response = await fetch(`${backendHost}/record/`);
 
      if (!response.ok) {
        const message = `An error occurred: ${response.statusText}`;
