@@ -12,7 +12,7 @@ WORKDIR /app
 COPY package*.json ./
 
 # Install app dependencies
-RUN npm install
+RUN npm install --loglevel verbose
 
 # Copy the rest of the app's source code to the container
 COPY . .
